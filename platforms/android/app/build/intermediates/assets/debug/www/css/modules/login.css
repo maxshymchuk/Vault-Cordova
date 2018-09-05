@@ -1,0 +1,41 @@
+#login {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transition-duration: .5s;
+}
+
+#login img {
+  padding: 10px;
+  margin: 0 auto;
+  max-width: 100px;
+}
+
+#login .title {
+  font-size: 20px;
+}
+
+#login #memo {
+  display: block;
+  border: 0;
+  font-size: 30px;
+  width: 90%;    
+  margin: 10px auto;
+  padding: 0;
+  text-align: center; 
+}
+
+#login #submit_button {
+  cursor: pointer;
+  width: 100%;
+  border: 0; 
+  background-color: rgb(0, 0, 255); 
+  color: #FFF;
+  line-height: 40px;
+  font-size: 14px;
+}
+
+#login #submit_button:active {
+  background-color: rgb(0, 0, 195);
+}
