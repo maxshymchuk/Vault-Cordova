@@ -7,10 +7,22 @@
     "files": {}
   },
   "installed_plugins": {
+    "cordova-clipboard": {
+      "PACKAGE_NAME": "com.project.vault"
+    },
+    "cordova-plugin-fingerprint-aio": {
+      "PACKAGE_NAME": "com.project.vault"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.project.vault"
+    },
+    "cordova-plugin-vibration": {
+      "PACKAGE_NAME": "com.project.vault"
+    },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.project.vault"
     },
-    "cordova-clipboard": {
+    "cordova-plugin-file": {
       "PACKAGE_NAME": "com.project.vault"
     }
   },

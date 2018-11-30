@@ -1,38 +1,74 @@
-#menu {
-  overflow: hidden;
-  position: fixed;
-  bottom: 0;
-  height: 0;
-  width: 100%;
-  box-shadow: #666 0 0 5px 0;
-  background-color: #FFF;
-  visibility: hidden;
-  transition-duration: .5s;
+@keyframes anime {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(15deg);
+  }
+  50% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
 }
 
-#menu div {
+#menu {
+  background-color: green;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px 0;
+  background-color: rgba(255, 255, 255, .75);
+  transition-duration: .5s;
+  border-top: 1px solid #DDD;
+}
+
+#menu button {
+  width: 40px;
   height: 40px;
-  float: left;
+  border: 0;
+  border-radius: 20px;
+  background-color: #FFF;
   text-align: center;
   transition-duration: .2s;
   cursor: pointer;
+  border: 1px solid #DDD;
+  outline: none;
+  animation: anime .4s alternate ease-in-out;
 }
 
-#menu div:active {
+#menu button:active {
   background-color: #EEE;
 }
 
-#menu .add_button {
-  background: url('../../img/add.svg') no-repeat center center;   
+#add_button,
+#lock_button,
+#settings_button,
+#delete_button {
+  background: no-repeat center center;
+}
+
+#add_button {
+  background-image: url('../../img/add.svg');   
   background-size: 50% 50%;
 }
 
-#menu .lock_button {
-  background: url('../../img/lock.svg') no-repeat center center;
+#lock_button {
+  background-image: url('../../img/lock.svg');
   background-size: 50% 50%;
 }
 
-#menu .settings_button {
-  background: url('../../img/settings.svg') no-repeat center center;
+#settings_button {
+  background-image: url('../../img/settings.svg');
+  background-size: 50% 50%;
+}
+
+#delete_button {
+  background-image: url('../../img/delete.svg');
   background-size: 50% 50%;
 }

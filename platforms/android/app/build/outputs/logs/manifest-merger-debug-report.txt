@@ -1,13 +1,13 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:2:1-14:12
-INJECTED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:2:1-14:12
-INJECTED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:2:1-14:12
-INJECTED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:2:1-14:12
+ADDED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:2:1-17:12
+INJECTED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:2:1-17:12
+INJECTED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:2:1-17:12
+INJECTED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:2:1-17:12
 MERGED from [:CordovaLib] E:\Projects\Node Projects\Vault\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:20:1-27:12
-INJECTED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:2:1-14:12
-INJECTED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:2:1-14:12
-INJECTED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:2:1-14:12
+INJECTED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:2:1-17:12
+INJECTED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:2:1-17:12
+INJECTED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:2:1-17:12
 	package
 		ADDED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:2:102-129
 		INJECTED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml
@@ -80,9 +80,25 @@ ADDED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\Androi
 		ADDED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:9:27-74
 uses-sdk
 ADDED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:13:5-74
+INJECTED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:13:5-74
 MERGED from [:CordovaLib] E:\Projects\Node Projects\Vault\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
 MERGED from [:CordovaLib] E:\Projects\Node Projects\Vault\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
+INJECTED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:13:5-74
 	android:targetSdkVersion
 		ADDED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:13:42-71
 	android:minSdkVersion
 		ADDED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:13:15-41
+		INJECTED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.USE_FINGERPRINT
+ADDED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:14:5-74
+	android:name
+		ADDED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:14:22-71
+uses-permission#android.permission.VIBRATE
+ADDED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:15:5-66
+	android:name
+		ADDED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:15:22-63
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:16:5-81
+	android:name
+		ADDED from E:\Projects\Node Projects\Vault\platforms\android\app\src\main\AndroidManifest.xml:16:22-78

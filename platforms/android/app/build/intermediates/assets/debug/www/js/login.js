@@ -1,89 +1,42 @@
 class Login {
   constructor() {
-    this.isShown = false;
-    this.login = this.createElement('div', [
-      {
-        name: 'id',
-        value: 'login'
-      },
-      {
-        name: 'class',
-        value: 'notification'
-      }
-    ]);
+    StatusBar.hide();
 
-    this.img = this.createElement('img', [
-      {
-        name: 'src',
-        value: './img/locked.svg'
-      }
-    ]);
+    this.login = document.createElement('div');
+    this.login.setAttribute('class', 'login');
 
-    this.title = document.createElement('div');
-    this.title.setAttribute('class', 'title');
-    this.title.innerText = 'password?';
+    this.button = document.createElement('div');
+    this.button.setAttribute('class', 'button');
 
-    this.memo = this.createElement('input', [
-      {
-        name: 'type',
-        value: 'password'
-      },
-      {
-        name: 'id',
-        value: 'memo'
-      },
-      {
-        name: 'autofocus',
-        //value: 'memo'
-      }
-    ]);
+    this.image = document.createElement('img');
+    this.image.src = 'img/fingerprint.svg';
 
-    this.submit = this.createElement('input', [
-      {
-        name: 'type',
-        value: 'submit'
-      },
-      {
-        name: 'id',
-        value: 'submit_button'
-      },
-      {
-        name: 'value',
-        value: '> connect'
-      },
-      {
-        name: 'onclick',
-        value: 'vault.login(document.getElementById(\'memo\').value)'
-      }
-    ]); 
+    this.login.appendChild(this.button);
+    this.button.appendChild(this.image);
 
-    this.login.appendChild(this.img);
-    this.login.appendChild(this.title);
-    this.login.appendChild(this.memo);
-    this.login.appendChild(this.submit);
+    this.login.addEventListener('click', this.checkFinger.bind(this));
 
-    document.getElementById('container').appendChild(this.login);
+    container.appendChild(this.login);
+
+    // DEBUGGING
+    // this.show();
   }
 
-  // arg = [ {name, value}, {}, {}, ...];
-  createElement(elemName, arg) {
-    const elem = document.createElement(elemName);
-    for (let i = 0; i < arg.length; i++) {
-      elem.setAttribute(arg[i].name, arg[i].value);
-    }
-    return elem;
+  checkFinger() {
+    Fingerprint.show({
+      clientId: "client",
+      clientSecret: "password"
+    }, () => {
+      StatusBar.show();
+      vault.remove(this.login);
+      vault.login();
+    });
   }
 
   show() {
-    this.isShown = true;
-    this.login.style.visibility = 'visible';
-    this.login.style.transform = 'translateY(-50%) scale(1)';
+    // DEBUGGING
+    vault.remove(this.login);
+    vault.login();
   }
 
-  hide() {
-    this.isShown = false;
-    this.memo.value = '';
-    this.login.style.visibility = 'hidden';
-    this.login.style.transform = 'translateY(-50%) scale(0)';
-  }
 }

@@ -1,114 +1,78 @@
 class AddMenu {
   constructor() {
-    this.isShown = false;
-    this.menu = this.createElement('div', [
-      {
-        name: 'id',
-        value: 'add'
-      },
-      {
-        name: 'class',
-        value: 'notification'
-      }
-    ]);
+    // list = {button_id: function, ...};
+    this.list = {};
 
-    this.title = document.createElement('div');
-    this.title.setAttribute('class', 'title');
-    this.title.innerText = 'new record';
-
-    this.note = this.createElement('input', [
-      {
-        name: 'type',
-        value: 'text'
-      },
-      {
-        name: 'id',
-        value: 'add_note'
-      },
-      {
-        name: 'placeholder',
-        value: '> note'
+    this.list = {
+      'add_menu_submit': () => {
+        this.add();
       }
-    ]);
+    };
 
-    this.pass = this.createElement('input', [
-      {
-        name: 'type',
-        value: 'text'
-      },
-      {
-        name: 'id',
-        value: 'add_pass'
-      },
-      {
-        name: 'placeholder',
-        value: '> pass'
-      }
-    ]);
+    this.addMenuLayer = document.createElement('div');
+    this.addMenuLayer.setAttribute('id', 'add_menu_layer');
 
-    this.submit = this.createElement('input', [
-      {
-        name: 'type',
-        value: 'submit'
-      },
-      {
-        name: 'id',
-        value: 'add_submit'
-      },
-      {
-        name: 'value',
-        value: '> add record'
-      },
-      {
-        name: 'onclick',
-        value: 'addMenu.addElem()'
-      }
-    ]); 
+    this.addMenu = document.createElement('div');
+    this.addMenu.setAttribute('id', 'add_menu');
+
+    this.inputGroup = document.createElement('div');
+    this.inputGroup.setAttribute('class', 'input_group');
+
+    this.note = document.createElement('input');
+    this.note.setAttribute('type', 'text');
+    this.note.setAttribute('placeholder', 'note');
+
+    this.pass = document.createElement('input');
+    this.pass.setAttribute('type', 'text');
+    this.pass.setAttribute('placeholder', 'pass');
+
+    this.inputGroup.appendChild(this.note);
+    this.inputGroup.appendChild(this.pass);
+
+    this.submit = document.createElement('button');
+    this.submit.setAttribute('id', 'add_menu_submit');
+    this.submit.innerText = 'OK';
     
-    this.menu.appendChild(this.title);
-    this.menu.appendChild(this.note);
-    this.menu.appendChild(this.pass);
-    this.menu.appendChild(this.submit);
+    this.addMenuLayer.appendChild(this.addMenu);
+    this.addMenu.appendChild(this.inputGroup);
+    this.addMenu.appendChild(this.submit);
     
-    document.getElementById('container').appendChild(this.menu);
+    container.appendChild(this.addMenuLayer);
+
+    this.addMenuLayer.addEventListener('click', this.onClick.bind(this));
   }
 
-  // arg = [ {name, value}, {}, {}, ... ];
-  createElement(elemName, arg) {
-    const elem = document.createElement(elemName);
-    for (let i = 0; i < arg.length; i++) {
-      elem.setAttribute(arg[i].name, arg[i].value);
+  onClick() {
+    const target = event.target;
+    switch (target.id) {
+      case 'add_menu_layer':
+      case 'add_menu':  
+        vault.remove(this.addMenuLayer);
+        break;
+      case 'add_menu_submit':
+        if (this.list != null) {
+          try {
+            this.list[target.id]();
+            content.hideHelp();
+          } catch {}  
+        }
+        break;
     }
-    return elem;
   }
 
-  addElem() {
+  add() {
     const note = this.note.value;
     const pass = this.pass.value;
     if (note == '' || pass == '') {
       return;
     }
-    const key = `item${Object.keys(list).length}`;
-    list[key] = {
+    const key = `item${Object.keys(content.items).length}`;
+    content.items[key] = {
       note: note,
       pass: pass
     };
-    storage.setItem(key, JSON.stringify(list[key]));
-    vault.loadData(key);
-    this.hide();
-  }
-
-  show() {
-    this.isShown = true;
-    this.menu.style.transform = 'translateX(0) translateY(-50%)';
-    this.menu.style.visibility = 'visible';
-  }
-
-  hide() {
-    this.isShown = false;
-    this.menu.style.visibility = 'hidden';
-    this.menu.style.transform = 'translateX(-150%) translateY(-50%)';
-    this.note.value = '';
-    this.pass.value = '';
+    storage.setItem(key, JSON.stringify(content.items[key]));
+    new Item(key);
+    vault.remove(this.addMenuLayer);
   }
 }

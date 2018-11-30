@@ -1,45 +1,108 @@
-#add {
-  text-align: left;
+@keyframes addMenuFlash {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-50%) translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
+
+@keyframes addMenuLayerFlash {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: rgba(0, 0, 0, .75);
+  }
+}
+
+::placeholder {
+  color: #EEE;
+}
+
+#add_menu_layer {
   position: fixed;
-  top: 50%;
   left: 0;
   right: 0;
-  transition-duration: .5s; 
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .75);
+  animation: addMenuLayerFlash .3s ease-out;
 }
 
-#add .title {
-  line-height: 40px;
-  font-size: 20px;
-  padding: 0 5%;
+#add_menu {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 400px;
+  width: 75%;
+  padding: 10px;
+  border-radius: 5px;
+  animation: addMenuFlash .3s ease-in-out;
 }
 
-#add #add_note,
-#add #add_pass {
-  display: block;
-  border: 0;
-  border-bottom: 2px solid #000;
-  font-size: 20px;
-  width: 90%;    
-  margin: 0 auto 15px auto;
-  padding: 0;
-  transition-duration: .4s;
-}
-
-#add #add_note:focus,
-#add #add_pass:focus {
-  border-color: #0000FF;
-}
-
-#add #add_submit {
-  cursor: pointer;
-  width: 100%;
-  border: 0; 
-  background-color: rgb(0, 0, 255); 
+#add_menu input {
+  width: calc(100% - 40px);
+  outline: none;
+  border: 1px solid #DDD;
+  border-radius: 100px;
+  text-align: left;
+  padding: 10px 20px;
+  margin: 10px 0;
+  font-family: Calibri;
+  font-size: 24px;
+  background-color: transparent;
+  transition-duration: .2s;
   color: #FFF;
-  line-height: 40px;
-  font-size: 14px;
 }
 
-#add #add_submit:active {
-  background-color: rgb(0, 0, 195);
+#add_menu input:focus {
+  background-color: #EEE;
+  color: #000;
+}
+
+#add_menu button {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #DDD;
+  outline: none;
+  background-color: transparent;
+  line-height: 100px;
+  border-radius: 100px;
+  font-family: Calibri;
+  font-weight: bold;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #FFF;
+  cursor: pointer;
+  transition-duration: .2s;
+  margin-top: 20px;
+}
+
+#add_menu button:active {
+  background-color: #EEE;
+  color: #000;
+}
+
+@media screen and (min-aspect-ratio: 1/1) and (min-width: 600px) {
+    #add_menu {
+      max-width: 700px;
+      flex-direction: row;
+    }
+
+    #add_menu .input_group {
+      width: 70%;
+    }
+
+    #add_menu button {
+      margin: 0;
+    }
 }
