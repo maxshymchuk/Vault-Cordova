@@ -1,0 +1,153 @@
+@keyframes settingsFlash {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+    max-height: calc(100vh);
+  }
+  100% {
+    opacity: 1;
+    max-height: calc(100vh - 60px);
+  }
+}
+
+@keyframes controlsFlash {
+  0% {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes settingsLayerFlash {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: rgba(0, 0, 0, .8);
+  }
+}
+
+::placeholder {
+  color: #EEE;
+}
+
+#settings_layer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .8);
+  animation: settingsLayerFlash .3s ease-out;
+}
+
+#settings {
+  width: 100%;
+  max-height: 100vh;
+  position: relative;
+  left: 0;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+#settings .records {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: calc(100vh - 60px);
+  position: relative;
+  left: 0;
+  padding: 0 20px;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  animation: settingsFlash .3s ease-in-out;
+}
+
+#settings .records .record {
+  padding: 20px 0;
+}
+
+#settings .records .record:not(:first-child) {
+  border-top: 1px solid #EEE;
+}
+
+#settings .records .record_title {
+  font-family: SEGOE UI;
+  color: #FFF;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+#settings .records .record .record_button_warning {
+  width: 100%;
+  height: 30px;
+  border: 0;
+  background-color: rgb(200, 0, 0);
+  color: #FFF;
+  border-radius: 20px;
+  cursor: pointer;
+  transition-duration: .1s;
+}
+
+#settings .records .record .record_button_warning:active {
+  box-sizing: border-box;
+  border: 2px solid rgb(200, 0, 0);
+  background-color: transparent;
+}
+
+#settings .records .record input {
+  width: 100%;
+  line-height: 40px;
+  padding: 0 20px;
+  border: 1px solid #DDD;
+  border-radius: 100px;
+  text-align: left;
+  font-family: SEGOE UI;
+  font-size: 24px;
+  box-sizing: border-box;
+  background-color: transparent;
+  transition-duration: .2s;
+  color: #FFF;
+}
+
+#settings .records .record input:focus {
+  background-color: #EEE;
+  color: #000;
+}
+
+#settings .controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px 0;
+  transition-duration: .5s;
+  border-top: 1px solid #DDD;
+  animation: controlsFlash .3s ease-in-out;
+}
+
+#settings .controls button {
+  min-width: 120px;
+  height: 40px;
+  border: 0;
+  border: 1px solid #DDD;
+  background-color: transparent;
+  border-radius: 100px;
+  font-family: SEGOE UI;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #FFF;
+  cursor: pointer;
+  transition-duration: .1s;
+}
+
+#settings button:active {
+  background-color: #DDD;
+  color: #000;
+}

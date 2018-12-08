@@ -14,7 +14,7 @@
     background-color: transparent;
   }
   to {
-    background-color: rgba(0, 0, 0, .75);
+    background-color: rgba(0, 0, 0, .8);
   }
 }
 
@@ -28,7 +28,7 @@
   right: 0;
   top: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, .75);
+  background-color: rgba(0, 0, 0, .8);
   animation: addMenuLayerFlash .3s ease-out;
 }
 
@@ -83,7 +83,7 @@
   letter-spacing: 2px;
   color: #FFF;
   cursor: pointer;
-  transition-duration: .2s;
+  transition-duration: .1s;
   margin-top: 20px;
 }
 

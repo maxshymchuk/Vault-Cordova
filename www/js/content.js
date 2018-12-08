@@ -1,6 +1,3 @@
-// browser local storage
-let storage = window.localStorage;
-
 // array of checked elements
 let checked = [];
 
@@ -15,10 +12,11 @@ class Content {
 
     container.appendChild(this.content);
     
+    this.order = [];
     this.items = {};
-    for (let i = 0; i < storage.length; i++) {
-      this.items[storage.key(i)] = JSON.parse(storage.getItem(storage.key(i)));
-    }
+    Object.keys(storage).filter(i => i.indexOf('item') + 1).forEach(item => {
+      this.items[item] = JSON.parse(storage.getItem(item));
+    });
   }
 
   showHelp() {
@@ -29,10 +27,15 @@ class Content {
     vault.remove(this.help);
   }
 
+  setOrder() {
+    this.order = Object.keys(this.items).sort((a, b) => {
+      return this.items[a].order - this.items[b].order;
+    });
+  }
+
   fill() {
     JSON.stringify(this.items) == '{}' && this.showHelp();
-    for (let record in this.items) {
-      new Item(record);
-    }
+    this.setOrder();
+    this.order.forEach(record => new Item(record));
   }
 }

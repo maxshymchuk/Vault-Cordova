@@ -57,10 +57,14 @@ class Item {
               storage.removeItem(checked[i].id);
               delete menu.list.delete_button;
               delete content.items[checked[i].id];
+              content.order.splice(content.order.indexOf(checked[i].id), 1);
               JSON.stringify(content.items) == '{}' && content.showHelp();
-              menu.update();
             }
+            menu.update();
             checked = [];
+            for (let i = 0; i < content.order.length; i++) {
+              content.items[content.order[i]].order = i;
+            }
           }
           checked.length == 1 && menu.update();
         }

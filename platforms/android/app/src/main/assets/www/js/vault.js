@@ -13,8 +13,9 @@ class Vault {
   }
 
   logout() {
-    content != null && this.remove(content.content);
-    menu != null && this.remove(menu.menu);
+    checked = [];
+    content && this.remove(content.content);
+    menu && this.remove(menu.menu);
     login = new Login();
   }
   

@@ -7,9 +7,9 @@ class Menu {
       'add_button': () => {
         addMenu = new AddMenu();
       },
-      // 'settings_button': () => {
-      //   alert('settings')
-      // },
+      'settings_button': () => {
+        settings = new Settings();
+      },
       'lock_button': () => {
         vault.logout();
       }

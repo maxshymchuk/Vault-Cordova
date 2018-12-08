@@ -34,11 +34,9 @@
   border: 0;
   border-radius: 20px;
   background-color: #FFF;
-  text-align: center;
-  transition-duration: .2s;
+  transition-duration: .1s;
   cursor: pointer;
   border: 1px solid #DDD;
-  outline: none;
   animation: anime .4s alternate ease-in-out;
 }
 

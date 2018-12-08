@@ -1,3 +1,12 @@
+@keyframes aBackup {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(-20px);
+  }
+}
+
 @keyframes aBorder {
   from {
     transform: scale(1);
@@ -14,6 +23,43 @@
   to {
     transform: scale(.7);
   }
+}
+
+.backup {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: calc(50% - 40px);
+  left: calc(50% - 40px);
+  animation: aBackup 3s infinite alternate ease-in-out;
+  cursor: pointer;
+  color: transparent; /* hide caret and font */
+  text-shadow: 0 0 0 transparent;
+  border: 0;
+  border-radius: 40px;
+  background-color: #FF0000;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0 20px;
+  font-size: 50px;
+  transition: 
+    top .5s,
+    left .5s, 
+    width .5s, 
+    border-radius .5s,
+    text-shadow .5s;
+  text-align: center;
+}
+
+.backup:focus {
+  background-color: #FF0000;
+  text-shadow: 0 0 0 #FFF;
+  border-bottom: 0 solid transparent;
+  width: 100%;
+  top: calc(25% - 40px);
+  left: 0;
+  border-radius: 0;
+  animation: none;
 }
 
 .login {

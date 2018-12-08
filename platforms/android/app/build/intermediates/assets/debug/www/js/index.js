@@ -7,6 +7,10 @@ let login = null;
 let menu = null; 
 let addMenu = null; 
 let content = null;
+let settings = null;
+
+// browser local storage
+let storage = window.localStorage;
 
 const app = {
   initialize() {

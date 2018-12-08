@@ -50,10 +50,9 @@ class AddMenu {
         vault.remove(this.addMenuLayer);
         break;
       case 'add_menu_submit':
-        if (this.list != null) {
+        if (this.list) {
           try {
             this.list[target.id]();
-            content.hideHelp();
           } catch {}  
         }
         break;
@@ -66,11 +65,14 @@ class AddMenu {
     if (note == '' || pass == '') {
       return;
     }
-    const key = `item${Object.keys(content.items).length}`;
+    content.hideHelp();
+    const key = `item-${Math.random().toString(36).replace('0.', '')}`;
     content.items[key] = {
+      order: Object.keys(content.items).length,
       note: note,
       pass: pass
     };
+    content.order.push(key);
     storage.setItem(key, JSON.stringify(content.items[key]));
     new Item(key);
     vault.remove(this.addMenuLayer);
