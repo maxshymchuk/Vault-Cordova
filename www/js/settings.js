@@ -2,6 +2,8 @@ class Settings {
   constructor() {
     // controlsList = {button_id: function, ...};
     this.controlsList = {};
+    // recordsList = order of records
+    this.recordsList = [];
 
     this.controlsList = {
       'settings_submit': () => {
@@ -38,16 +40,29 @@ class Settings {
     this.record1.appendChild(this.record1_title);
     this.record1.appendChild(this.record1_inputGroup);
 
+    this.recordsList.push(this.record1);
+
     // record 2
     this.record2 = document.createElement('div');
     this.record2.setAttribute('class', 'record');
 
-    this.record2_button = document.createElement('button');
-    this.record2_button.setAttribute('class', 'record_button_warning');
-    this.record2_button.innerText = 'clear all data & restore settings';
-    this.record2_button.addEventListener('click', this.erase.bind(this))
+    this.section = document.createElement('div');
+    this.section.setAttribute('class', 'record_section');
 
-    this.record2.appendChild(this.record2_button);
+    this.record2_button1 = document.createElement('button');
+    this.record2_button1.setAttribute('class', 'record_button erase warning');
+    this.record2_button1.addEventListener('click', this.erase.bind(this));
+
+    this.record2_button2 = document.createElement('button');
+    this.record2_button2.setAttribute('class', 'record_button sync');
+    this.record2_button2.addEventListener('click', this.sync.bind(this));
+
+    this.section.appendChild(this.record2_button2);
+    this.section.appendChild(this.record2_button1);
+    
+    this.record2.appendChild(this.section);
+
+    this.recordsList.push(this.record2);
 
     // controls
     this.controls = document.createElement('div');
@@ -62,8 +77,9 @@ class Settings {
     this.controls.appendChild(this.close);
     
     // overall
-    this.records.appendChild(this.record1);
-    this.records.appendChild(this.record2);
+    this.recordsList.forEach(r => {
+      this.records.appendChild(r);
+    })
     this.settings.appendChild(this.records);
     this.settings.appendChild(this.controls);
     this.settingsLayer.appendChild(this.settings);
@@ -87,12 +103,16 @@ class Settings {
   }
 
   erase() {
-    if (confirm('Are you sure?')) {
+    if (confirm('It will erase all your data and restore default settings.\nAre you sure?')) {
       navigator.vibrate(500);
       storage.clear();
       vault.remove(this.settingsLayer);
       vault.logout();
     }
+  }
+
+  sync() {
+    alert('it\'s not ready for release, bitch');
   }
 
 }

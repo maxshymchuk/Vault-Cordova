@@ -73,28 +73,34 @@
   border-top: 1px solid #EEE;
 }
 
-#settings .records .record_title {
+#settings .records .record .record_title {
   font-family: SEGOE UI;
   color: #FFF;
   font-size: 20px;
   padding-bottom: 10px;
 }
 
-#settings .records .record .record_button_warning {
-  width: 100%;
-  height: 30px;
-  border: 0;
-  background-color: rgb(200, 0, 0);
-  color: #FFF;
-  border-radius: 20px;
-  cursor: pointer;
-  transition-duration: .1s;
+#settings .records .record .record_section {
+  display: flex;
+  justify-content: flex-end;
 }
 
-#settings .records .record .record_button_warning:active {
-  box-sizing: border-box;
-  border: 2px solid rgb(200, 0, 0);
+#settings .records .record .record_button {
+  margin-left: 10px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #DDD;
   background-color: transparent;
+  color: #FFF;
+  border-radius: 30px;
+  cursor: pointer;
+  transition-duration: .1s;
+} 
+
+#settings .records .record .record_button:active {
+  border-color: transparent;
+  transform: scale(1.1);
 }
 
 #settings .records .record input {
@@ -147,7 +153,22 @@
   transition-duration: .1s;
 }
 
-#settings button:active {
+#settings .controls button:active {
   background-color: #DDD;
   color: #000;
+}
+
+
+.warning {
+  background-color: rgb(200, 0, 0) !important;
+}
+
+.erase {
+  background: url(../../img/erase.svg) no-repeat center center;
+  background-size: 40%;
+}
+
+.sync {
+  background: url(../../img/sync.svg) no-repeat center center;
+  background-size: 50%;
 }

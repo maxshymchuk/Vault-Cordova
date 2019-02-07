@@ -65,7 +65,6 @@ class AddMenu {
     if (note == '' || pass == '') {
       return;
     }
-    content.hideHelp();
     const key = `item-${Math.random().toString(36).replace('0.', '')}`;
     content.items[key] = {
       order: Object.keys(content.items).length,
@@ -75,6 +74,7 @@ class AddMenu {
     content.order.push(key);
     storage.setItem(key, JSON.stringify(content.items[key]));
     new Item(key);
+    content.hideHelp();
     vault.remove(this.addMenuLayer);
   }
 }

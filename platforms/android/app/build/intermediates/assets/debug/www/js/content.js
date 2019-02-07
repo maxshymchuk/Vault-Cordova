@@ -9,6 +9,7 @@ class Content {
     this.help = document.createElement('div');
     this.help.setAttribute('class', 'help');
     this.help.innerText = 'Empty! :(';
+    this.help.shown = false;
 
     container.appendChild(this.content);
     
@@ -20,22 +21,20 @@ class Content {
   }
 
   showHelp() {
-    this.content.appendChild(this.help);
+    !this.help.shown && this.content.appendChild(this.help);
+    this.help.shown = true;
   }
 
   hideHelp() {
-    vault.remove(this.help);
-  }
-
-  setOrder() {
-    this.order = Object.keys(this.items).sort((a, b) => {
-      return this.items[a].order - this.items[b].order;
-    });
+    this.help.shown && vault.remove(this.help);
+    this.help.shown = false;
   }
 
   fill() {
     JSON.stringify(this.items) == '{}' && this.showHelp();
-    this.setOrder();
+    this.order = Object.keys(this.items).sort((a, b) => {
+      return this.items[a].order - this.items[b].order;
+    });
     this.order.forEach(record => new Item(record));
   }
 }
