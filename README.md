@@ -1,2 +1,3 @@
-# Vault
-Simple analog to 1Password for smartphones
+# Vault Cordova
+
+Deprecated password storage app
